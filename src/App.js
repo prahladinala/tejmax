@@ -6,6 +6,10 @@ import Home from './components/Home'
 import Movies from './components/Movies'
 import Theatres from './components/Theatres'
 import LoginPopup from './components/LoginPopup'
+import SingleTheatre from './components/SingleTheatre'
+import NotFound from './components/NotFound'
+import SingleMovie from './components/SingleMovie'
+import Cart from './components/Cart'
 
 function App() {
   return (
@@ -15,6 +19,10 @@ function App() {
         <Route component={Home} path='/' exact />
         <Route component={Movies} path='/movies' />
         <Route component={Theatres} path='/theaters' />
+        <Route component={SingleTheatre} path='/theater/:id' />
+        <Route component={SingleMovie} path='/movie/:id' />
+        <Route component={Cart} path='/cart' />
+        <Route component={NotFound} />
       </Switch>
       <LoginPopup />
       <Footer />
