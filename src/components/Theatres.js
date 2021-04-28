@@ -1,6 +1,14 @@
-import React from 'react'
-import MovieCard from './MovieCard'
+import { React, useEffect } from "react"
+import MovieCard from "./MovieCard"
 export default function Theatres() {
+  useEffect(() => {
+    const fetchTheaters = async () => {
+      const response = await fetch("http://localhost:3000/theatres")
+      const data = await response.json()
+      console.log(data)
+    }
+    fetchTheaters()
+  })
   return (
     <div className='container'>
       <h1>Theatres</h1>
