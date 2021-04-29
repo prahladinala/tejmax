@@ -1,27 +1,27 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react"
+import { NavLink } from "react-router-dom"
 
 export default function NavBar() {
   return (
     <nav
-      class='navbar navbar-expand-md navbar-light fixed-top py-4'
+      className='navbar navbar-expand-md navbar-light fixed-top py-4'
       id='main-nav'
       data-aos='fade-down'
     >
-      <div class='container'>
+      <div className='container'>
         <NavLink to='/' className='navbar-brand'>
-          <h3 class='d-inline align-middle'>TejMax</h3>
+          <h3 className='d-inline align-middle'>TejMax</h3>
         </NavLink>
         <button
-          class='navbar-toggler'
+          className='navbar-toggler'
           data-toggle='collapse'
           data-target='#navbarCollapse'
         >
-          <span class='navbar-toggler-icon'></span>
+          <span className='navbar-toggler-icon'></span>
         </button>
-        <div class='collapse navbar-collapse' id='navbarCollapse'>
-          <ul class='navbar-nav ml-auto'>
-            <li class='nav-item'>
+        <div className='collapse navbar-collapse' id='navbarCollapse'>
+          <ul className='navbar-nav ml-auto'>
+            <li className='nav-item'>
               <NavLink
                 to='/'
                 className='nav-link'
@@ -31,7 +31,7 @@ export default function NavBar() {
                 Home
               </NavLink>
             </li>
-            <li class='nav-item'>
+            <li className='nav-item'>
               <NavLink
                 to='/movies'
                 className='nav-link'
@@ -41,7 +41,7 @@ export default function NavBar() {
                 Movies
               </NavLink>
             </li>
-            <li class='nav-item'>
+            <li className='nav-item'>
               <NavLink
                 to='/theaters'
                 className='nav-link'
@@ -51,10 +51,10 @@ export default function NavBar() {
                 Theaters
               </NavLink>
             </li>
-            <li class='nav-item'>
+            <li className='nav-item'>
               <button
                 type='button'
-                class='btn btn-primary my-auto'
+                className='btn btn-primary my-auto'
                 data-toggle='modal'
                 data-target='#staticBackdrop'
               >
