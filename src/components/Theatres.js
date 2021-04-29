@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react"
+import { React } from "react"
 import MovieCard from "./MovieCard"
 export default function Theatres() {
   return (
