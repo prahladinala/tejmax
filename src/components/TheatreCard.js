@@ -1,7 +1,10 @@
 import React from "react"
 import poster from "../img/poster.png"
 const TheatreCard = ({
-    details
+  title = "BasketBall",
+  rating = "4",
+  btntext = "Book a Tickets",
+  btnicon = "fas fa-shopping-cart",
 }) => {
   return (
     <div className='col-lg-3 col-6'>
@@ -9,10 +12,11 @@ const TheatreCard = ({
         <img src={poster} className='card-img-top' alt='...' />
         <div className='card-body'>
           <h5 className='card-title'>
-            {details.name} &nbsp;
+            {title} &nbsp;
+            
           </h5>
           <a href='#' className='btn btn-primary btn-block'>
-            <i className="fas fa-shopping-cart"></i> &nbsp; Check Movies
+            <i className={btnicon}></i> &nbsp; {btntext}
           </a>
         </div>
       </div>

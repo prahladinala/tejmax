@@ -1,8 +1,9 @@
 import React from "react"
 import poster from "../img/poster.png"
 const MovieCard = ({
-  title = "BasketBall",
+  title = "Movie Name",
   rating = "4",
+  genre= "Thriller",
   btntext = "Book a Tickets",
   btnicon = "fas fa-shopping-cart",
 }) => {
@@ -11,12 +12,15 @@ const MovieCard = ({
       <div className='card mt-2'>
         <img src={poster} className='card-img-top' alt='...' />
         <div className='card-body'>
-          <h5 className='card-title'>
+          <h4 className='card-title'>
             {title} &nbsp;
             <span className='gold_color'>
               <i className='fas fa-star'></i> {rating}
             </span>
-          </h5>
+          </h4>
+          <p>
+          Genre : <span>{genre}</span>
+          </p>
           <a href='#' className='btn btn-primary btn-block'>
             <i className={btnicon}></i> &nbsp; {btntext}
           </a>

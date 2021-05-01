@@ -58,7 +58,17 @@ export default function NavBar() {
                 data-toggle='modal'
                 data-target='#staticBackdrop'
               >
-                Sign in
+                Login
+              </button>
+            </li>
+            <li className='nav-item'>
+              <button
+                type='button'
+                className='btn btn-outline-primary my-auto'
+                data-toggle='modal'
+                data-target='#staticBackdrop'
+              >
+                Register
               </button>
             </li>
           </ul>

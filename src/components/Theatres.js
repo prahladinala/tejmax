@@ -1,24 +1,33 @@
-import React, {useState, useEffect} from "react"
+import React, {Component} from "react"
 import TheatreCard from "./TheatreCard"
 import Axios from "axios"
-export default function Theatres() {
+const api = Axios.create({
+  baseURL: 'http://localhost:3000/theatres'
+})
+class Theatres extends Component {
 
-  const [details, setDetails] = useState({})
-  const fetchDetails = async ()=>{
-    const {data} = await Axios.get('http://localhost:3000/theatres')
-    // console.log("RESPONSE: ", data)
-    const details = data[0]
-    setDetails(details)
+  state = {
+    theatres: []
   }
-  useEffect(()=>{
-    fetchDetails()
-  },[])
-  return (
-    <div className='container'>
+
+  constructor(){
+    super();
+    api.get('/').then(res =>{
+      console.log(res.data)
+      this.setState({ theatres: res.data})
+    })
+  }
+  render (){
+    return(
+      <div className='container'>
       <h1>Theatres</h1>
+      {/* {this.state.theatres.map( theatre => <h2 key={theatre.id}>{theatre.name}</h2>)} */}
+
       <div className='row'>
-        <TheatreCard details={details}/>
+      {this.state.theatres.map( theatre => <TheatreCard key={theatre.id} title={theatre.name} btntext="Check Tickets"/>)}
       </div>
     </div>
-  )
+    )
+  }
 }
+export default Theatres
