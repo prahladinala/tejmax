@@ -16,7 +16,7 @@ export default function LoginPopup() {
           <div className='modal-content'>
             <div className='modal-header'>
               <h5 className='modal-title' id='staticBackdropLabel'>
-                Login / Signup
+                Login to Tej Max
               </h5>
               <button
                 type='button'
@@ -49,16 +49,7 @@ export default function LoginPopup() {
                     id='exampleInputPassword1'
                   />
                 </div>
-                <div className='form-group form-check'>
-                  <input
-                    type='checkbox'
-                    className='form-check-input'
-                    id='exampleCheck1'
-                  />
-                  <label className='form-check-label' for='exampleCheck1'>
-                    Save Password
-                  </label>
-                </div>
+
                 <button type='submit' className='btn btn-primary'>
                   Submit
                 </button>

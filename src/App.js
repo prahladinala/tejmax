@@ -10,7 +10,7 @@ import SingleTheatre from './components/SingleTheatre'
 import NotFound from './components/NotFound'
 import SingleMovie from './components/SingleMovie'
 import Cart from './components/Cart'
-
+import Signup from './components/Signup'
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +22,7 @@ function App() {
         <Route component={SingleTheatre} path='/theater/:id' />
         <Route component={SingleMovie} path='/movie/:id' />
         <Route component={Cart} path='/cart' />
+        <Route component={Signup} path='/signup' />
         <Route component={NotFound} />
       </Switch>
       <LoginPopup />

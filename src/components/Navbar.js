@@ -62,14 +62,13 @@ export default function NavBar() {
               </button>
             </li>
             <li className='nav-item'>
-              <button
-                type='button'
+              <NavLink
+                to='/signup'
                 className='btn btn-outline-primary my-auto'
-                data-toggle='modal'
-                data-target='#staticBackdrop'
+
               >
                 Register
-              </button>
+              </NavLink>
             </li>
           </ul>
         </div>
