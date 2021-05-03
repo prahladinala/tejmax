@@ -51,7 +51,7 @@ export default function NavBar() {
                 Theaters
               </NavLink>
             </li>
-            <li className='nav-item'>
+            {/* <li className='nav-item'>
               <button
                 type='button'
                 className='btn btn-primary my-auto'
@@ -60,12 +60,19 @@ export default function NavBar() {
               >
                 Login
               </button>
+            </li> */}
+            <li className='nav-item'>
+              <NavLink
+                to='/signin'
+                className='btn btn-primary my-auto'
+              >
+                Login
+              </NavLink>
             </li>
             <li className='nav-item'>
               <NavLink
                 to='/signup'
                 className='btn btn-outline-primary my-auto'
-
               >
                 Register
               </NavLink>

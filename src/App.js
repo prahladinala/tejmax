@@ -11,6 +11,7 @@ import NotFound from './components/NotFound'
 import SingleMovie from './components/SingleMovie'
 import Cart from './components/Cart'
 import Signup from './components/Signup'
+import Signin from './components/Signin'
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +24,7 @@ function App() {
         <Route component={SingleMovie} path='/movie/:id' />
         <Route component={Cart} path='/cart' />
         <Route component={Signup} path='/signup' />
+        <Route component={Signin} path='/signin' />
         <Route component={NotFound} />
       </Switch>
       <LoginPopup />
