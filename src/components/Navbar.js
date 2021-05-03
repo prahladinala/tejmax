@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { NavLink, withRouter } from "react-router-dom"
 import { signout, isAutheticated } from "../auth/index"
 
@@ -59,28 +59,32 @@ const NavBar = ({ history }) => (
               Theaters
               </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink
-              to='/signin'
-              className='btn btn-primary my-auto'
-            >
-              Login
+          {!isAutheticated() && (
+            <Fragment>
+              <li className='nav-item'>
+                <NavLink
+                  to='/signin'
+                  className='btn btn-primary my-auto'
+                >
+                  Login
               </NavLink>
-          </li>
-          <li className='nav-item'>
-            <NavLink
-              to='/signup'
-              className='btn btn-outline-primary my-auto'
-            >
-              Register
+              </li>
+              <li className='nav-item'>
+                <NavLink
+                  to='/signup'
+                  className='btn btn-outline-primary my-auto'
+                >
+                  Register
               </NavLink>
-          </li>
+              </li>
+            </Fragment>
+          )}
           {isAutheticated() && (
             <li className='nav-item'>
               <span className="nav-link btn btn-warning text-white"
                 onClick={() => {
                   signout(() => {
-                    history.push("/signin")
+                    history.push("/")
                   })
                 }}>Signout</span>
             </li>
