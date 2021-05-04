@@ -17,6 +17,8 @@ import PrivateRoute from './auth/PrivateRoute'
 import UserDashboard from './components/UserDashboard'
 import AdminDashboard from './components/AdminDashboard'
 import AddTheatre from './components/AddTheatre'
+import ManageTheatres from './components/ManageTheatres'
+import AddMovie from './components/AddMovie'
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <PrivateRoute component={UserDashboard} exact path='/user/dashboard' />
         <AdminRoute component={AdminDashboard} exact path='/admin/dashboard' />
         <AdminRoute component={AddTheatre} exact path='/admin/add/theatre' />
+        <AdminRoute component={ManageTheatres} exact path='/admin/theatres' />
+        <AdminRoute component={AddMovie} exact path='/admin/add/movie' />
         <Route component={Signup} exact path='/signup' />
         <Route component={Signin} exact path='/signin' />
         <Route component={NotFound} />
