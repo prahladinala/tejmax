@@ -11,6 +11,9 @@ const adminLeftSide = () => {
                     <Link to="/admin/add/theatre" className="nav-link text-info">Add Theater</Link>
                 </li>
                 <li className="list-group-item">
+                    <Link to="/admin/theatres" className="nav-link text-info">Manage Theaters</Link>
+                </li>
+                <li className="list-group-item">
                     <Link to="/admin/add/movie" className="nav-link text-info">Add Movies</Link>
                 </li>
                 <li className="list-group-item">
