@@ -109,8 +109,6 @@ const Signup = () => {
             {successMessage()}
             {errorMessage()}
             {signUpForm()}
-            <p className="text-center">{JSON.stringify(values)}</p>
-
         </div>
     );
 }

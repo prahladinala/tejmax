@@ -59,6 +59,16 @@ const NavBar = ({ history }) => (
               Theaters
               </NavLink>
           </li>
+          <li className='nav-item'>
+            <NavLink
+              to='/cart'
+              className='nav-link'
+              exact
+              activeClassName='active'
+            >
+              Cart
+              </NavLink>
+          </li>
           {!isAutheticated() && (
             <Fragment>
               <li className='nav-item'>
