@@ -61,6 +61,26 @@ const NavBar = ({ history }) => (
           </li>
           <li className='nav-item'>
             <NavLink
+              to='/user/dashboard'
+              className='nav-link'
+              exact
+              activeClassName='active'
+            >
+              U.Dashboard
+              </NavLink>
+          </li>
+          <li className='nav-item'>
+            <NavLink
+              to='/admin/dashboard'
+              className='nav-link'
+              exact
+              activeClassName='active'
+            >
+              A.Dashboard
+              </NavLink>
+          </li>
+          <li className='nav-item'>
+            <NavLink
               to='/cart'
               className='nav-link'
               exact

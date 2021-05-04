@@ -1,13 +1,13 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
-import { isAuthenticated } from "./index"
+import { isAutheticated } from "./index"
 
 const AdminRoute = ({ component: Component, ...rest }) => {
     return (
         <Route
             {...rest}
             render={props =>
-                isAuthenticated() && isAuthenticated().user.email === "admin@tejmax.com" ? (
+                isAutheticated() && isAutheticated().email === "admin@tejmax.com" ? (
                     <Component {...props} />
                 ) : (
                     <Redirect
