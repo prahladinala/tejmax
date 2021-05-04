@@ -59,26 +59,30 @@ const NavBar = ({ history }) => (
               Theaters
               </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink
-              to='/user/dashboard'
-              className='nav-link'
-              exact
-              activeClassName='active'
-            >
-              U.Dashboard
+          {isAutheticated() && isAutheticated().email !== "admin@tejmax.com" && (
+            <li className='nav-item'>
+              <NavLink
+                to='/user/dashboard'
+                className='nav-link'
+                exact
+                activeClassName='active'
+              >
+                Dashboard
               </NavLink>
-          </li>
-          <li className='nav-item'>
-            <NavLink
-              to='/admin/dashboard'
-              className='nav-link'
-              exact
-              activeClassName='active'
-            >
-              A.Dashboard
+            </li>
+          )}
+          {isAutheticated() && isAutheticated().email === "admin@tejmax.com" && (
+            <li className='nav-item'>
+              <NavLink
+                to='/admin/dashboard'
+                className='nav-link'
+                exact
+                activeClassName='active'
+              >
+                A.Dashboard
               </NavLink>
-          </li>
+            </li>
+          )}
           <li className='nav-item'>
             <NavLink
               to='/cart'
