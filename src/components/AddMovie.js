@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getTheatres } from '../admin/adminapicall'
+import { addMovie, getTheatres } from '../admin/adminapicall'
 
 const AddMovie = () => {
 
     const [values, setValues] = useState({
         name: "",
-        description: "",
+        genre: "",
         price: "",
-        stock: "",
-        photo: "",
+        seats: "",
         theatres: [],
         theatre: "",
         loading: false,
@@ -19,7 +18,7 @@ const AddMovie = () => {
         formData: ""
     })
 
-    const { name, description, price, stock, theatres, theatre, loading, error, addedMovie, getaRedirect, formData } = values
+    const { name, genre, price, seats, theatres, theatre, loading, error, addedMovie, getaRedirect, formData } = values
 
     const preload = () => {
         getTheatres().then(data => {
@@ -35,43 +34,31 @@ const AddMovie = () => {
     }, [])
     const createProductForm = () => (
         <form >
-            <span>Post photo</span>
-            <div className="form-group">
-                <label className="btn btn-block btn-info">
-                    <input
-                        onChange={handleChange("photo")}
-                        type="file"
-                        name="photo"
-                        accept="image"
-                        placeholder="choose a file"
-                    />
-                </label>
-            </div>
-
             <div className="form-group">
                 <input
                     onChange={handleChange("name")}
-                    name="photo"
+                    name="name"
                     className="form-control"
-                    placeholder="Name"
+                    placeholder="Movie Name"
                     value={name}
                 />
             </div>
             <div className="form-group">
-                <textarea
-                    onChange={handleChange("description")}
-                    name="photo"
+                <input
+                    onChange={handleChange("genre")}
+                    name="genre"
                     className="form-control"
-                    placeholder="Description"
-                    value={description}
+                    placeholder="Genre"
+                    value={genre}
                 />
             </div>
             <div className="form-group">
                 <input
                     onChange={handleChange("price")}
+                    name="price"
                     type="number"
                     className="form-control"
-                    placeholder="Price"
+                    placeholder="Ticket Price"
                     value={price}
                 />
             </div>
@@ -81,7 +68,7 @@ const AddMovie = () => {
                     className="form-control"
                     placeholder="Category"
                 >
-                    <option>Select</option>
+                    <option>Theatre Name</option>
                     {theatres && theatres.map((thea, index) => (
                         <option key={index} value={thea._id}>{thea.name}</option>
                     ))}
@@ -89,11 +76,12 @@ const AddMovie = () => {
             </div>
             <div className="form-group">
                 <input
-                    onChange={handleChange("quantity")}
+                    onChange={handleChange("seats")}
+                    name="seats"
                     type="number"
                     className="form-control"
-                    placeholder="Quantity"
-                    value={stock}
+                    placeholder="Available Seats"
+                    value={seats}
                 />
             </div>
 
@@ -103,9 +91,27 @@ const AddMovie = () => {
         </form>
     );
 
-    const onSubmit = () => { }
+    const onSubmit = (event) => {
+        event.preventDefault()
+        setValues({ ...values, error: "", loading: true })
+        addMovie(formData).then(data => {
+            if (data.error) {
+                setValues({ ...values, error: data.error })
+            } else {
+                setValues({
+                    ...values,
+                    name: "",
+                    genre: "",
+                    price: "",
+                    stock: "",
+                    loading: false,
+                    addedMovie: data.name
+                })
+            }
+        })
+    }
     const handleChange = name => event => {
-        const value = name === "photo" ? event.target.file[0] : event.target.value
+        const value = event.target.value
         formData.set(name, value)
         setValues({ ...values, [name]: value })
     }
@@ -117,12 +123,34 @@ const AddMovie = () => {
         </div>
     )
 
+    const successMessage = () => (
+        <div className="alert alert-success  alert-dismissible fade show" role="alert"
+            style={{ display: addedMovie ? "" : "none" }}>
+            <h4>New Movie Added to Database</h4>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    )
+    const warningMessage = () => (
+        <div className="alert alert-success  alert-dismissible fade show" role="alert"
+            style={{ display: addedMovie ? "none" : "" }}>
+            <h4>New Movie Added to Database</h4>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    )
+
+
     return (
         <div className="container">
             <h1 className="text-center">Add a new Movie</h1>
             <div className="row mt-4">
                 <div className="col-md-8 offset-md-2">
                     {goBack()}
+                    {successMessage()}
+                    {warningMessage()}
                     {createProductForm()}
                 </div>
             </div>
