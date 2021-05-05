@@ -5,7 +5,6 @@ import Footer from './components/Footer'
 import Home from './components/Home'
 import Movies from './components/Movies'
 import Theatres from './components/Theatres'
-import LoginPopup from './components/LoginPopup'
 import SingleTheatre from './components/SingleTheatre'
 import NotFound from './components/NotFound'
 import SingleMovie from './components/SingleMovie'
@@ -19,6 +18,7 @@ import AdminDashboard from './components/AdminDashboard'
 import AddTheatre from './components/AddTheatre'
 import ManageTheatres from './components/ManageTheatres'
 import AddMovie from './components/AddMovie'
+import ManageMovies from './components/ManageMovies'
 
 function App() {
   return (
@@ -36,11 +36,11 @@ function App() {
         <AdminRoute component={AddTheatre} exact path='/admin/add/theatre' />
         <AdminRoute component={ManageTheatres} exact path='/admin/theatres' />
         <AdminRoute component={AddMovie} exact path='/admin/add/movie' />
+        <AdminRoute component={ManageMovies} exact path='/admin/movies' />
         <Route component={Signup} exact path='/signup' />
         <Route component={Signin} exact path='/signin' />
         <Route component={NotFound} />
       </Switch>
-      <LoginPopup />
       <Footer />
     </BrowserRouter>
   )

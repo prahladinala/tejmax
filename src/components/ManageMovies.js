@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getTheatres, deleteTheatre } from '../admin/adminapicall'
-const ManageTheatres = () => {
+import { deleteMovie, getMovies } from '../admin/adminapicall'
+const ManageMovies = () => {
 
-    const [theatres, setTheatres] = useState([])
+    const [movies, setMovies] = useState([])
     const preload = () => {
-        getTheatres().then(data => {
+        getMovies().then(data => {
             if (data.error) {
                 console.log(data.error)
             } else {
-                setTheatres(data)
+                setMovies(data)
             }
         })
     }
@@ -18,8 +18,8 @@ const ManageTheatres = () => {
         preload()
     }, [])
 
-    const deleteThisTheatre = theatreId => {
-        deleteTheatre(theatreId).then(data => {
+    const deleteThisMovie = movieId => {
+        deleteMovie(movieId).then(data => {
             if (data.error) {
                 console.log(data.error)
             } else {
@@ -27,6 +27,7 @@ const ManageTheatres = () => {
             }
         })
     }
+
     const goBack = () => (
         <div className="mt-5">
             <Link className="btn btn-sm btn-info mb-3" to="/admin/dashboard">
@@ -37,30 +38,30 @@ const ManageTheatres = () => {
 
     return (
         <div className="container">
-            <h1 className="text-center">Manage Theatres</h1>
+            <h1 className="text-center">Manage Movies</h1>
 
             {goBack()}
-            <h2 className="mb-4">All Theatres:</h2>
+            <h2 className="mb-4">All Movies:</h2>
             <div className="row">
                 <div className="col-12">
 
-                    {theatres.map((theatre, index) => {
+                    {movies.map((movie, index) => {
                         return (
                             <div key={index} className="row text-center mb-2 ">
                                 <div className="col-4">
-                                    <h4 className=" text-left">{theatre.name}</h4>
+                                    <h4 className=" text-left">{movie.name}</h4>
                                 </div>
                                 <div className="col-4">
                                     <Link
                                         className="btn btn-success"
-                                        to={`/admin/theatre/update/theatreId`}
+                                        to={`/admin/movie/update/movieId`}
                                     >
                                         <span className="">Update</span>
                                     </Link>
                                 </div>
                                 <div className="col-4">
                                     <button onClick={() => {
-                                        deleteThisTheatre(theatre._id)
+                                        deleteThisMovie(movie._id)
                                     }} className="btn btn-danger">
                                         Delete
               </button>
@@ -71,8 +72,7 @@ const ManageTheatres = () => {
                     })}
                 </div>
             </div >
-        </div>
-
+        </div >
     )
 }
-export default ManageTheatres
+export default ManageMovies
