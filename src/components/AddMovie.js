@@ -40,6 +40,7 @@ const AddMovie = () => {
                     name="name"
                     className="form-control"
                     placeholder="Movie Name"
+                    required
                     value={name}
                 />
             </div>
@@ -49,6 +50,7 @@ const AddMovie = () => {
                     name="genre"
                     className="form-control"
                     placeholder="Genre"
+                    required
                     value={genre}
                 />
             </div>
@@ -59,6 +61,7 @@ const AddMovie = () => {
                     type="number"
                     className="form-control"
                     placeholder="Ticket Price"
+                    required
                     value={price}
                 />
             </div>
@@ -67,8 +70,8 @@ const AddMovie = () => {
                     onChange={handleChange("category")}
                     className="form-control"
                     placeholder="Category"
+                    required
                 >
-                    <option>Theatre Name</option>
                     {theatres && theatres.map((thea, index) => (
                         <option key={index} value={thea._id}>{thea.name}</option>
                     ))}
@@ -81,12 +84,13 @@ const AddMovie = () => {
                     type="number"
                     className="form-control"
                     placeholder="Available Seats"
+                    required
                     value={seats}
                 />
             </div>
 
-            <button type="submit" onClick={onSubmit} className="btn btn-outline-success">
-                Create Product
+            <button type="submit" onClick={onSubmit} className="btn btn-outline-info">
+                Add Movie
           </button>
         </form>
     );

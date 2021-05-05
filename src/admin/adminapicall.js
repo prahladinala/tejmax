@@ -35,7 +35,7 @@ export const getTheatres = () => {
 //Movies Calls
 //Add Movie
 export const addMovie = (movie) => {
-    return fetch(`${API}/movies`, {
+    return fetch(`${API}/newmovies`, {
         method: "POST",
         headers: {
             Accept: "application/json",
@@ -52,7 +52,7 @@ export const addMovie = (movie) => {
 
 //Get All Movies
 export const getMovies = () => {
-    return fetch(`${API}/movies`, {
+    return fetch(`${API}/newmovies`, {
         method: "GET"
     })
         .then(response => {
@@ -65,7 +65,7 @@ export const getMovies = () => {
 
 // Delete a movie
 export const deleteMovie = (movieId) => {
-    return fetch(`${API}/movies/${movieId}`, {
+    return fetch(`${API}/newmovies/${movieId}`, {
         method: "DELETE",
         headers: {
             Accept: "application/json",
@@ -80,7 +80,7 @@ export const deleteMovie = (movieId) => {
 }
 // Get a movie
 export const getMovie = movieId => {
-    return fetch(`${API}/movies/${movieId}`, {
+    return fetch(`${API}/newmovies/${movieId}`, {
         method: "GET"
     })
         .then(response => {
@@ -93,7 +93,7 @@ export const getMovie = movieId => {
 
 // Update a movie
 export const updateMovie = (movieId, movie) => {
-    return fetch(`${API}/movies/${movieId}`, {
+    return fetch(`${API}/newmovies/${movieId}`, {
         method: "PUT",
         headers: {
             Accept: "application/json",

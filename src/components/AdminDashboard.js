@@ -20,7 +20,7 @@ const adminLeftSide = () => {
                     <Link to="/admin/movies" className="nav-link text-info">Manage Movies</Link>
                 </li>
                 <li className="list-group-item">
-                    <Link to="/admin/orders" className="nav-link text-info">Manage Orders</Link>
+                    <Link to="/admin/orders" className="nav-link text-info">Manage Bookings</Link>
                 </li>
             </ul>
         </div>
@@ -50,9 +50,9 @@ const AdminDashboard = () => {
 
     return (
         <div className="container-fluid bg-info p-4">
-            <h1 className="text-center text-white">Welcome to Admin Dashboard</h1>
+            <h1 className="text-center text-white mt-5">Welcome to Admin Dashboard</h1>
             <p className="text-center text-white">You can Manage all the Movie Tickets and Theatres here</p>
-            <div className="row">
+            <div className="row  mb-5 mt-2">
                 <div className="col-3 ">
                     {adminLeftSide()}
                 </div>

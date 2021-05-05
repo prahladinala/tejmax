@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import TheatreCard from "./TheatreCard"
 import Axios from "axios"
 const api = Axios.create({
@@ -10,23 +10,21 @@ class Theatres extends Component {
     theatres: []
   }
 
-  constructor(){
+  constructor() {
     super();
-    api.get('/').then(res =>{
+    api.get('/').then(res => {
       console.log(res.data)
-      this.setState({ theatres: res.data})
+      this.setState({ theatres: res.data })
     })
   }
-  render (){
-    return(
+  render() {
+    return (
       <div className='container'>
-      <h1>Theatres</h1>
-      {/* {this.state.theatres.map( theatre => <h2 key={theatre.id}>{theatre.name}</h2>)} */}
-
-      <div className='row'>
-      {this.state.theatres.map( theatre => <TheatreCard key={theatre.id} title={theatre.name} btntext="Check Tickets"/>)}
+        <h1>Theatres</h1>
+        <div className='row mb-5'>
+          {this.state.theatres.map(theatre => <TheatreCard key={theatre.id} title={theatre.name} btntext="Check Tickets" />)}
+        </div>
       </div>
-    </div>
     )
   }
 }
