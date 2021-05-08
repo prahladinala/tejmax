@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { addTheatre } from "../admin/adminapicall"
-import { isAutheticated } from "../auth"
 
 const AddTheatre = () => {
 

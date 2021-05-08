@@ -39,7 +39,6 @@ const Signin = () => {
     };
 
     const performRedirect = () => {
-        //TODO: do a redirect here
         if (didRedirect) {
             if (user && email === "admin@tejmax.com") {
                 return <Redirect to="/admin/dashboard" />;

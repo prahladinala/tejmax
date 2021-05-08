@@ -20,7 +20,7 @@ const adminLeftSide = () => {
                     <Link to="/admin/movies" className="nav-link text-info">Manage Movies</Link>
                 </li>
                 <li className="list-group-item">
-                    <Link to="/admin/orders" className="nav-link text-info">Manage Bookings</Link>
+                    <Link to="/admin/bookings" className="nav-link text-info">Manage Bookings</Link>
                 </li>
             </ul>
         </div>

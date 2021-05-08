@@ -19,6 +19,7 @@ import AddTheatre from './components/AddTheatre'
 import ManageTheatres from './components/ManageTheatres'
 import AddMovie from './components/AddMovie'
 import ManageMovies from './components/ManageMovies'
+import ManageBookings from './components/ManageBookings'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <AdminRoute component={ManageTheatres} exact path='/admin/theatres' />
         <AdminRoute component={AddMovie} exact path='/admin/add/movie' />
         <AdminRoute component={ManageMovies} exact path='/admin/movies' />
+        <AdminRoute component={ManageBookings} exact path='/admin/bookings' />
         <Route component={Signup} exact path='/signup' />
         <Route component={Signin} exact path='/signin' />
         <Route component={NotFound} />
