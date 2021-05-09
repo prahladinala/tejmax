@@ -1,6 +1,21 @@
-import React from "react"
+import React, { useState, useEffect } from 'react'
+import { getTheatres } from '../admin/adminapicall'
 
 export default function Cart() {
+  const [theatres, setTheatres] = useState([])
+  const preload = () => {
+    getTheatres().then(data => {
+      if (data.error) {
+        console.log(data.error)
+      } else {
+        setTheatres(data)
+      }
+    })
+  }
+  useEffect(() => {
+    preload()
+  }, [])
+
   return (
     <div className='container'>
       <div className='row'>
@@ -94,6 +109,18 @@ export default function Cart() {
             <div className='card-body'>
               <div className='form-group'>
                 <label for='exampleFormControlSelect1'>
+                  Available Theatres
+                </label>
+                <select className='form-control' id='exampleFormControlSelect2'>
+                  {theatres.map((theatre, index) => {
+                    return (
+                      <option key={index}>{theatre.name}</option>
+                    )
+                  })}
+                </select>
+              </div>
+              <div className='form-group'>
+                <label for='exampleFormControlSelect1'>
                   Select No of Film Tickets
                 </label>
                 <select className='form-control' id='exampleFormControlSelect1'>
@@ -115,6 +142,6 @@ export default function Cart() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
