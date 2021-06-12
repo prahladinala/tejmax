@@ -16,6 +16,14 @@ export default function Cart() {
     preload()
   }, [])
 
+  const onhandleChange = () => {
+    var optionValue = document.getElementById("exampleFormControlSelect1").value;
+    var optionValueInt = parseInt(optionValue)
+    console.log(typeof (optionValueInt))
+    console.log(optionValueInt)
+
+  }
+
   return (
     <div className='container'>
       <div className='row'>
@@ -123,12 +131,12 @@ export default function Cart() {
                 <label for='exampleFormControlSelect1'>
                   Select No of Film Tickets
                 </label>
-                <select className='form-control' id='exampleFormControlSelect1'>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select onChange={onhandleChange()} className='form-control' id='exampleFormControlSelect1'>
+                  <option value="1" >1</option>
+                  <option value="2" >2</option>
+                  <option value="3" >3</option>
+                  <option value="4" >4</option>
+                  <option value="5" >5</option>
                 </select>
               </div>
 
